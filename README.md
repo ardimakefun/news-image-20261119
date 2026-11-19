@@ -16,23 +16,25 @@ mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
 
 ## The image
 
-A one-page newspaper for Thursday 19 November 2026:
+A modern one-page news graphic for Thursday 19 November 2026 — typography
+and real data only, no illustration: a giant headline, one sharp red accent,
+and an honest log-scale bar chart of the day's figures.
 
 - **Lead — Summit in Shenzhen:** Trump, Xi and Putin gather in Shenzhen. Xi hugged Trump on the tarmac as the leaders gathered for a first trilateral meeting today — nuclear arms, Ukraine and the Gulf on the table.
-- **Gaming:** GTA VI is out at last. After 13 years, the game unlocks at midnight worldwide on PS5 and Xbox; pre-orders top $1.5bn.
+- **The day in numbers (log scale, labelled):** Anthropic raised $81bn, the EU proposed a €45bn loan for Ukraine, and a Van Gogh sold for a record $190.4m.
 - **Markets:** Anthropic's $81bn debut. The Claude maker priced its IPO at $83 — the biggest stock-market debut ever. Shares start trading today as ANT.
+- **Gaming:** GTA VI is out at last. After 13 years, the game unlocks at midnight worldwide on PS5 and Xbox; pre-orders top $1.5bn.
 - **The Hague:** World court rules on Myanmar today. The ICJ rules on The Gambia's case over the 2017 Rohingya crackdown.
-- **Weather:** Cyclone Akvan bears down on India. Red alert on the Andhra coast; landfall forecast by noon Friday.
 - **The Gulf:** Gulf fire spreads to Kuwait. Iran struck US targets in Kuwait after US jets hit Qeshm Island.
-- **Also today:** EU proposes a €45bn loan for Ukraine, repayable only after Russia pays reparations; Voyager 1 crossed one light-day on Wednesday, 25.9bn km out; Van Gogh sells for a record $190.4m at Sotheby's; Israeli tanks cross Gaza's Yellow Line in a rare ground operation; Crimean Bridge hit again, traffic halted.
+- **Also today:** Cyclone Akvan bears down on India (145 km/h); Voyager 1 crossed one light-day on Wednesday, 25.9bn km out; Israeli tanks cross Gaza's Yellow Line in a rare ground operation; Crimean Bridge hit again, traffic halted.
 
 The page is drawn by `render_news.py` (build-time only, Pillow) from the fixed news data in that file, so the image is fully reproducible. The grader never runs the renderer — it only runs `main.py`.
 
-## What changed in v2 (and why)
+## What changed in v5 (and why)
 
-v1 was a plain template: half-empty story boxes, a blank navy block beside the lead, and tiny line icons. v2 is drawn like a real front page — a filled hero illustration (three flags over the Shenzhen skyline), an illustrated banner on every story, and denser text.
+v2 was a newspaper front page with a drawn hero illustration (three flags over the Shenzhen skyline) and illustrated banners. Every illustrated version still read as AI-made, so v5 drops all illustration: no skyline, no flags, no maps, no paper texture, no newspaper masthead. What is left is what modern news graphics actually use — a huge sans-serif headline, a single red accent, and one labelled log-scale chart built from the day's verified figures. The news facts are unchanged from v2.
 
-Facts were re-checked against live sources on 19 Nov 2026 and corrected:
+## Facts (re-checked in v2, unchanged in v5)
 
 - **Corrected:** the summit headline no longer claims a completed trilateral meeting. The NYT (19 Nov, 00:57 UTC) reports Xi hugged Trump on the tarmac and the three-way meeting is expected on Thursday.
 - **Corrected:** the Myanmar verdict is scheduled for today — the outcome is not claimed.
