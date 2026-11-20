@@ -11,7 +11,8 @@ pictogram grid across world, business, tech, science, weather, sport and
 culture, an "Also today" ticker, and a clearly labelled "Yesterday — 18
 Nov" slot for the EU Ukraine loan and the record Van Gogh sale, which are
 not 19 Nov events. 44 stories on the page in total, every headline,
-figure and date taken from the verified research in work/research-v6.md.
+figure and date taken from the verified research in work/research-v6.md
+and work/research-v6-addendum.md (COP31 draft, Colombia strike).
 
 The image itself is drawn at build time by render_v6.py (Pillow, fixed
 data, no clock, no network, no randomness) and committed as entry.png;

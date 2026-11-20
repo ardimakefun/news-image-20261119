@@ -376,7 +376,7 @@ def tile(d, x, y, s, colour, key):
 # (kicker, pictogram key, section colour, headline, one-line deck)
 
 GRID = [
-    # WORLD (7)
+    # WORLD (9)
     ("WORLD · APEC", "globe", STEEL,
      "APEC adopts Shenzhen Outlook",
      "21 economies back the plan."),
@@ -398,6 +398,12 @@ GRID = [
     ("WORLD · WASHINGTON", "lock", STEEL,
      "White House cyber chief fired",
      "Pentagon CIO takes over for now."),
+    ("WORLD · ANTALYA", "globe", STEEL,
+     "COP31 draft drops fossil fuels",
+     "Slim text cuts $120bn aid goal."),
+    ("WORLD · BOGOTÁ", "globe", STEEL,
+     "Colombia unions hold national strike",
+     "Marches in five cities over tax bill."),
     # BUSINESS (8)
     ("BUSINESS · MARKETS", "chart-down", OCHRE,
      "Dow drops 1,101 points, below 50,000",
@@ -425,25 +431,22 @@ GRID = [
      "Sharpest fall among chip names."),
     # TECH (2)
     ("TECH · CYBER", "lock", SLATE,
-     "Hackers leak data on 16,000 bank clients",
+     "Hackers leak JPMorgan clients' data",
      "Reserve cardholders hit."),
     ("TECH · COMPUTING", "flask", SLATE,
      "Chinese team wins Gordon Bell Prize",
      "1.456 exaflops of chemistry."),
-    # SCIENCE (3)
+    # SCIENCE (2)
     ("SCIENCE · SPACE", "star", TEAL,
      "Pulsar hunt runs a million times faster",
      "New find spins 261 times/sec."),
     ("SCIENCE · SPACE", "satellite", TEAL,
      "Voyager 1 confirmed one light-day out",
      "25.9bn km; signals take a day."),
-    ("SCIENCE · NATURE", "moth", TEAL,
-     "New micro moth found in Assam",
-     "Wingspan just 6.5 mm."),
     # WEATHER (1)
     ("WEATHER · INDIA", "cyclone", SKY,
      "Cyclone Akvan nears India's coast",
-     "95 km/h; 300,000 evacuated."),
+     "95 km/h; 300,000+ evacuated."),
     # SPORT (5)
     ("SPORT · NFL", "ball", GREEN,
      "Texans crush Colts 26-3",
@@ -460,7 +463,7 @@ GRID = [
     ("SPORT · NHL", "ball", GREEN,
      "Kings edge Leafs 4-3 in shootout",
      "Los Angeles wins the shootout."),
-    # CULTURE (6)
+    # CULTURE (5)
     ("CULTURE · TV", "tv", WINE,
      "Skydance merges Warner Bros and Paramount TV",
      "One studio; CBS stays separate."),
@@ -469,23 +472,20 @@ GRID = [
      "Celebrating Liverpool on film."),
     ("CULTURE · MUSIC", "mic", WINE,
      "Jazz Fest 2027 names its headliners",
-     "Foo Fighters, Noah Kahan, Who."),
+     "Foo Fighters, Kahan, The Who."),
     ("CULTURE · FILM", "film", WINE,
      "Ramayana passes 1,547 crore worldwide",
      "Day 15 at the box office."),
     ("CULTURE · FILM", "clapper", WINE,
      "Patrick Stewart cremated using water",
      "Actor died 28 Oct, aged 86."),
-    ("CULTURE · SUMMIT", "moon", WINE,
-     "Trump caught dozing during Xi's speech",
-     "White House: he was reading."),
 ]
 
 # Second leads: (band colour, band big text, kicker, headline, deck)
 SECOND = [
     (STEEL, "9 of 15", "THE HAGUE · JUSTICE",
      "World Court: Myanmar guilty of genocide",
-     "9 of 15 judges find for The Gambia; reparations ordered."),
+     "9 of 15 judges find for The Gambia — a first for the court."),
     (OCHRE, "+17%", "NEW YORK · MARKETS",
      "Anthropic debuts in biggest IPO ever",
      "Opened $111.50, closed $97.17, up 17% on $83. Raised $81.3bn."),
@@ -500,7 +500,7 @@ NUMBERS = [
     ("-1,101", "Dow points, first close below 50,000 since June"),
     ("~$61,353", "Bitcoin low, weakest since July"),
     ("9 of 15", "ICJ judges find Myanmar guilty"),
-    ("95 km/h", "Cyclone Akvan; 300,000 evacuated"),
+    ("95 km/h", "Cyclone Akvan; 300,000+ evacuated"),
     ("25.9bn km", "Voyager 1 — one light-day out"),
 ]
 
@@ -601,7 +601,7 @@ def main():
     # ---- masthead ------------------------------------------------------
     y = 8
     tracked(d, M, y, "THE WORLD IN ONE DAY", F_BOLD(13), ACCENT, tracking=3)
-    right = "44 STORIES · EVERY CONTINENT · ALL FROM THIS ONE DAY"
+    right = "44 STORIES · EVERY CONTINENT"
     tracked(d, W - M - tracked_w(d, right, F_BOLD(13), 3), y, right,
             F_BOLD(13), GREY, tracking=3)
     y = 24
@@ -745,7 +745,8 @@ def main():
     x = tracked(d, M, y, "YESTERDAY — 18 NOV", F_BOLD(12), WINE, tracking=1)
     x += 10
     yday = ("EU proposes €45bn loan for Ukraine · "
-            "Van Gogh sells for a record $190.4m")
+            "Van Gogh sells for a record $190.4m · "
+            "DATE CHECK: every other story 19 Nov 2026")
     d.text((x, y), yday, font=F_REG(12), fill=BODY)
     d.text((M, y + 16),
            "Sources: Reuters, AP, BBC, AFP, AnewZ, TechCrunch, "
