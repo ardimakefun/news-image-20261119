@@ -433,10 +433,10 @@ LEADS = [
      "Peace': 'a nuclear war cannot be won' — plus UN reform, fuel "
      "supply, ICC limits."),
     ("icj", "THE HAGUE · JUSTICE", STEEL,
-     "World Court: Myanmar guilty of genocide",
+     "World Court finds Myanmar guilty of genocide",
      "9 of 15 judges find for The Gambia — a first for the court."),
     ("anthropic", "NEW YORK · MARKETS", OCHRE,
-     "Anthropic debuts in biggest IPO ever",
+     "Anthropic debuts with record $81.3bn IPO",
      "Opened $111.50, closed $97.17, up 17% on $83. Raised $81.3bn."),
 ]
 
@@ -836,8 +836,11 @@ def main():
         ky = y0 + panel_h + 6
         tracked(d, cx, ky, kicker, F_BOLD(11), colour, tracking=1)
         hy = ky + 15
-        for line in wrap_strict(d, head, F_XBOLD(17), col_w, 2,
-                                f"lead headline {i}"):
+        hlines = wrap_strict(d, head, F_XBOLD(17), col_w, 2,
+                             f"lead headline {i}")
+        assert len(hlines[-1].split()) > 1, (
+            f"lead headline {i} ends with an orphan word: {head!r}")
+        for line in hlines:
             d.text((cx, hy), line, font=F_XBOLD(17), fill=INK)
             hy += 20
         dy = hy + 4
