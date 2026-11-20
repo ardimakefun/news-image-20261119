@@ -408,16 +408,18 @@ def picto_scaled(img, x, y, s, colour, key):
 #
 # Story count: 3 leads + 12 grid + 29 numbered briefs = 44 stories.
 # Region counts (computed from this list, must sum to 44):
-#   ASIA 7, MIDDLE EAST 2, EUROPE 6, AFRICA 1, AMERICAS 20, OCEANIA 1,
-#   GLOBAL 7  ->  7+2+6+1+20+1+7 = 44.
+#   ASIA 6, MIDDLE EAST 2, EUROPE 6, AFRICA 1, AMERICAS 21, OCEANIA 1,
+#   GLOBAL 7  ->  6+2+6+1+21+1+7 = 44.
+# Gordon Bell is counted AMERICAS: the prize was won at SC26 in Chicago,
+# so its place (CHICAGO), its map pin and its region now all agree.
 
 # Region colours for the counted strip (name, count, colour).
 REGIONS = [
-    ("ASIA", 7, (179, 71, 36)),
+    ("ASIA", 6, (179, 71, 36)),
     ("MIDDLE EAST", 2, (138, 109, 27)),
     ("EUROPE", 6, (51, 89, 126)),
     ("AFRICA", 1, (47, 107, 51)),
-    ("AMERICAS", 20, (107, 78, 142)),
+    ("AMERICAS", 21, (107, 78, 142)),
     ("OCEANIA", 1, (31, 110, 110)),
     ("GLOBAL", 7, (85, 85, 85)),
 ]
@@ -428,7 +430,8 @@ LEADS = [
     ("summit", "SUMMIT — FIRST US-CHINA-RUSSIA TRILATERAL", ACCENT,
      "Trump, Xi and Putin hold first three-way summit",
      "Ninety minutes, one table, a four-point 'Declaration toward "
-     "Peace': UN reform, fuel supply, ICC limits."),
+     "Peace': 'a nuclear war cannot be won' — plus UN reform, fuel "
+     "supply, ICC limits."),
     ("icj", "THE HAGUE · JUSTICE", STEEL,
      "World Court: Myanmar guilty of genocide",
      "9 of 15 judges find for The Gambia — a first for the court."),
@@ -447,7 +450,7 @@ GRID = [
      "APEC adopts Shenzhen Outlook",
      "21 economies back the plan."),
     (STEEL, "bridge", "", "WORLD · CRIMEA",
-     "Ukraine hits Crimea Bridge a third time",
+     "Ukraine hits Crimea Bridge for a third time",
      "Neptune missiles halt trains."),
     (STEEL, "shield", "", "WORLD · GAZA",
      "Gaza raid ends after a day",
@@ -456,25 +459,25 @@ GRID = [
      "COP31 draft drops fossil fuels",
      "Slim text cuts $120bn aid goal."),
     (STEEL, "globe", "5", "WORLD · BOGOTÁ",
-     "Colombia unions hold national strike",
+     "Colombia unions strike nationwide over tax",
      "Marches in five cities over tax bill."),
     (SKY, "cyclone", "95", "WEATHER · INDIA",
      "Cyclone Akvan nears India's coast",
      "95 km/h; 300,000+ evacuated."),
     (OCHRE, "chart-down", "-1,101", "BUSINESS · MARKETS",
-     "Dow drops 1,101 points, below 50,000",
+     "Dow drops 1,101 points, ends below 50,000",
      "Sixth straight day of losses."),
     (OCHRE, "bitcoin", "", "BUSINESS · CRYPTO",
      "Bitcoin sinks below $62,000",
      "Lowest since July: $61,353."),
     (TEAL, "satellite", "", "SCIENCE · SPACE",
-     "Voyager 1 confirmed one light-day out",
+     "Voyager 1 confirmed one light-day from Earth",
      "25.9bn km; signals take a day."),
     (GREEN, "ball", "26-3", "SPORT · NFL",
      "Texans crush Colts 26-3",
      "Colts scoreless after the first."),
     (GREEN, "trophy", "", "SPORT · WNBA",
-     "Valkyries sweep Aces into first Finals",
+     "Valkyries sweep Aces to first WNBA Finals",
      "Golden State wins 87-77 in OT."),
 ]
 
@@ -508,24 +511,25 @@ BRIEFS = [
     ("CHICAGO", "Goolsbee won't rule out bigger hikes"),
     ("HORMUZ", "IEA: Iran war may cut Hormuz reliance"),
     ("NEW YORK", "Warner Music's first $2bn quarter"),
-    ("WORLDWIDE", "GTA pre-orders ~$1.54bn (est. 17 Nov)"),
+    ("GLOBAL", "GTA pre-orders ~$1.54bn (Sensor Tower, 17 Nov)"),
     ("WASHINGTON", "US jobless claims jump unexpectedly"),
     ("OTTAWA", "Canada eases rules for small banks"),
 ]
 
 # Map pins: (brief number, map-local x, map-local y). The map box is
-# 330x187; positions are approximate (see sources line). One pin per
-# distinct place — the first brief for that place; briefs 4, 7, 9, 11,
-# 13, 21, 22, 24, 26, 27, 28 share a place (or have none) and have no
-# pin of their own, so the pins stay readable instead of merging into
-# one red blob over the US east coast.
+# 330x175; positions are approximate (see the legend under the map).
+# One pin per distinct place — the first brief for that place; briefs 4,
+# 7, 9, 11, 13, 21, 22, 24, 26, 27, 28 share a place (or have none) and
+# have no pin of their own, so the pins stay readable instead of merging
+# into one red blob over the US east coast. Pins are spaced so no two
+# 12px pin circles touch (the renderer asserts this).
 PINS = [
-    (1, 70, 56), (2, 232, 58), (3, 170, 28),
-    (5, 306, 44), (6, 304, 148), (8, 78, 46),
-    (10, 24, 40), (12, 54, 40),
-    (14, 48, 60), (15, 58, 56), (16, 66, 32), (17, 30, 56),
-    (18, 162, 22), (19, 60, 66), (20, 252, 74), (23, 196, 116),
-    (25, 242, 64), (29, 74, 24),
+    (1, 82, 52), (2, 226, 52), (3, 174, 32),
+    (5, 306, 44), (6, 304, 148), (8, 90, 40),
+    (10, 24, 40), (12, 64, 38),
+    (14, 56, 70), (15, 68, 60), (16, 76, 30), (17, 30, 56),
+    (18, 158, 22), (19, 70, 78), (20, 252, 74), (23, 196, 116),
+    (25, 242, 64), (29, 88, 20),
 ]
 
 # The day in numbers: (big figure, label) — all from stories on this page.
@@ -703,7 +707,7 @@ def draw_lead_anthropic(d, x, y, w, h):
 
 
 def draw_map(d, x, y, w, h):
-    """Schematic world map, 330x187: flat tan continents on pale ocean,
+    """Schematic world map, 330x175: flat tan continents on pale ocean,
     numbered red pins tied to the briefs list. Positions approximate."""
     d.rectangle([x, y, x + w, y + h], fill=(214, 231, 240))
     land = (232, 220, 184)
@@ -766,6 +770,10 @@ def main():
     assert {n for n, _, _ in PINS} == {1, 2, 3, 5, 6, 8, 10, 12, 14, 15,
                                         16, 17, 18, 19, 20, 23, 25, 29}, (
         "map pins must be one per distinct brief place")
+    for i, (n1, x1, y1) in enumerate(PINS):
+        for n2, x2, y2 in PINS[i + 1:]:
+            assert (x1 - x2) ** 2 + (y1 - y2) ** 2 > 12 ** 2, (
+                f"map pins {n1} and {n2} touch")
 
     img = Image.new("RGB", (W, H), PAPER)
     d = ImageDraw.Draw(img)
@@ -861,8 +869,11 @@ def main():
         tracked(d, cx, cy + band_h + 4, kicker, F_BOLD(10), colour,
                 tracking=1)
         hy = cy + band_h + 16
-        for line in wrap_strict(d, head, F_XBOLD(13), cell_w, 2,
-                                f"grid headline {idx}"):
+        hlines = wrap_strict(d, head, F_XBOLD(13), cell_w, 2,
+                             f"grid headline {idx}")
+        assert len(hlines[-1].split()) > 1, (
+            f"grid headline {idx} ends with an orphan word: {head!r}")
+        for line in hlines:
             d.text((cx, hy), line, font=F_XBOLD(13), fill=INK)
             hy += 14
         dlines = wrap_strict(d, deck_s, F_REG(11), cell_w, 1,
@@ -880,9 +891,13 @@ def main():
     tracked(d, briefs_x, y, "ALSO ON THURSDAY 19 NOVEMBER 2026",
             F_BOLD(12), ACCENT, tracking=2)
     map_y = 751
-    map_w, map_h = 330, 187
+    map_w, map_h = 330, 175
     draw_map(d, M, map_y, map_w, map_h)
     d.rectangle([M, map_y, M + map_w, map_y + map_h], outline=INK, width=2)
+    legend = ("One pin per place — first brief for that place; "
+              "positions approximate.")
+    assert text_w(d, legend, F_REG(9)) <= map_w, "map legend too wide"
+    d.text((M, map_y + map_h + 3), legend, font=F_REG(9), fill=GREY)
     col_w = (W - M - briefs_x - 12) // 2
     assert len(BRIEFS) == 29, f"briefs must be 29, have {len(BRIEFS)}"
     for idx, (place, head) in enumerate(BRIEFS):

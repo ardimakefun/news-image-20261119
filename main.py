@@ -9,7 +9,7 @@ in The Hague (brick courthouse, gold scales, a red 9-6 vote badge) and
 Anthropic's record IPO debut on NASDAQ (a rising candlestick chart,
 IPO $83, close $97.17); a "WHERE IT HAPPENED" world map drawn in code
 with numbered pins tied to the numbered briefs; a region-counted strip
-(ASIA 7, MIDDLE EAST 2, EUROPE 6, AFRICA 1, AMERICAS 20, OCEANIA 1,
+(ASIA 6, MIDDLE EAST 2, EUROPE 6, AFRICA 1, AMERICAS 21, OCEANIA 1,
 GLOBAL 7 — counts computed from the actual story list, summing to 44);
 and a DATE CHECK footer naming the specific items left out as other
 days' news (the EU's €45bn Ukraine loan, the $190.4m Van Gogh sale, the
